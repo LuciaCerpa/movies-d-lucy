@@ -34,13 +34,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Limit the number of requests that can be accepted to our server
-const limiter = rateLimit({
-	max: 10000,
-	windowMs: 60 * 60 * 1000, // 1 hr
-	message: 'Number of requests have been exceeded',
-});
+// const limiter = rateLimit({
+// 	max: 10000,
+// 	windowMs: 60 * 60 * 1000, // 1 hr
+// 	message: 'Number of requests have been exceeded',
+// });
 
-app.use(limiter);
+// app.use(limiter);
 
 // Add security headers
 app.use(helmet());
