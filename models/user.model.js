@@ -1,4 +1,4 @@
-const { db, DataTypes } = require('../utils/database.util');
+const { db, DataTypes } = require('../utils/dataBase.util');
 
 // Create our first model (table)
 const User = db.define('user', {

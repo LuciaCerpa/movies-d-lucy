@@ -3,7 +3,7 @@ const { app } = require('./app');
 const { initModels } = require('./models/initModels');
 
 // Utils
-const { db } = require('./utils/database.util');
+const {db} = require('./utils/dataBase.util');
 
 db.authenticate()
 	.then(() => console.log('Db authenticated'))
