@@ -7,13 +7,13 @@ const { Personaje } = require('./personaje.model');
 const initModels = () => {
 	// Establish model's relations
 
-// 1 Pelicula <----> M Genero
-Pelicula.hasMany(Genero, { foreignKey: 'peliculaId' });
-Genero.belongsTo(Pelicula);
+// // 1 Pelicula <----> M Genero
+// Pelicula.hasMany(Genero);
+// Genero.belongsTo(Pelicula);
 
-// // 1 Pelicula <----> M Personaje
-Pelicula.hasMany(Personaje, { foreignKey: 'peliculaId' });
-Personaje.belongsTo(Pelicula);
+// // // 1 Pelicula <----> M Personaje
+// Pelicula.hasMany(Personaje);
+// Personaje.belongsTo(Pelicula);
 
 // // M Pelicula <----> M Personaje
 // Pelicula.belongsToMany(Personaje, { foreignKey: 'peliculaId'});

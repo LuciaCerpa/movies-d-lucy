@@ -41,25 +41,27 @@ const register = catchAsync(async (req, res, next) => {
 });
 
 const getUserById = catchAsync(async (req, res, next) => {
-  const { user } = req;
-
+  const {id}=req.params
+    const user = await User.findOne({where: {id, status:"active"}})
   res.status(200).json({
     user,
   });
 });
 
 const updateUser = catchAsync(async (req, res, next) => {
-  const { user } = req;
-  const { name } = req.body;
+  const { id } = req.params;
+  const { name, email } = req.body;
 
-  await user.update({ name });
+  const user = await User.findOne({where:{id, status:"active"}})
+
+  await user.update({ name, email });
 
   res.status(200).json({ status: 'success' });
 });
 
 const deleteUser = catchAsync(async (req, res, next) => {
-  const { user } = req;
-
+  const { id } = req.params;
+  const user = await User.findOne({where:{id, status:"active"}})
   await user.update({ status: 'deleted' });
 
   res.status(200).json({

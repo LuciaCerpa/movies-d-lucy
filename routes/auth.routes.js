@@ -10,7 +10,7 @@ const {
     deleteUser	
 } = require('../controllers/auths.controller');
 
-
+const { userExists } = ('../middlewares/users.middleware')
 
 
 const authsRouter = express.Router();
@@ -19,8 +19,10 @@ authsRouter.post('/login', login);
 authsRouter.post('/register', register);
 
 authsRouter.get('/', getAllUsers);
-authsRouter.get('/:id', getUserById);
-authsRouter.put('/:id', updateUser);
-authsRouter.delete('/:id', deleteUser);
+authsRouter	
+	.route('/:id')
+    .get(getUserById)	
+	.patch(updateUser)
+	.delete(deleteUser);
 
 module.exports = { authsRouter };

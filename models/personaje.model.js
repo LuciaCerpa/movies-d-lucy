@@ -20,7 +20,7 @@ const Personaje = db.define('personaje', {
 		allowNull: false,		
 	},
     peso: {
-		type: DataTypes.DECIMAL,
+		type: DataTypes.FLOAT,
 		allowNull: false,
 	},
     historia: {

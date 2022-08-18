@@ -17,11 +17,11 @@ const createUserValidations = [
     .withMessage('Password must be at least 8 characters long'),
 ];
 
-const createCategoryValidations = [
+const createMovieValidations = [
   body('name').notEmpty().withMessage('Name cannot be empty'),
 ];
 
-const createProductValidations = [
+const createCharacterValidations = [
   body('title').notEmpty().withMessage('Title cannot be empty'),
   body('description').notEmpty().withMessage('Description cannot be empty'),
   body('price')
@@ -55,7 +55,7 @@ const checkValidations = (req, res, next) => {
 
 module.exports = {
   createUserValidations,
-  createProductValidations,
-  createCategoryValidations,
+  createCharacterValidations,
+  createMovieValidations,
   checkValidations,
 };

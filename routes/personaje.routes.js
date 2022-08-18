@@ -7,38 +7,28 @@ const {
 	updateCharacter,
 	deleteCharacter,
     getCharacterById,
-    getCharactersByName,
-    getCharactersByAge,
-    getCharactersByMovie,
+    getCharacterByName,
+    getCharacterByAge,
+    getCharacterByMovie,
 } = require('../controllers/personajes.controller');
 
-// Middlewares
-// const {
-// 	createUserValidators,
-// } = require('../middlewares/validators.middleware');
-// const { characterExists } = require('../middlewares/personajes.middleware');
-
-// const {
-// 	protectSession,
-// 	protectUserAccount,
-// } = require('../middlewares/auth.middleware');
+const {
+    characterExists
+ } = require('../middlewares/personajes.middleware');
 
 const personajesRouter = express.Router();
 
-
-// personajesRouter.use(protectSession);
-
 personajesRouter.get('/', getAllCharacters);
 personajesRouter.post('/', createCharacter);
-// personajesRouter
-// 	.use('/characters/:id', /*characterExists*/)
-// 	.route('/characters/:id')
-//     .get(getCharacterById)	
-// 	.patch(/*protectUserAccount,*/ updateCharacter)
-// 	.delete(/*protectUserAccount,*/ deleteCharacter);
-    
-// personajesRouter.get('/?name=nombre', getCharactersByName)
-// personajesRouter.get('/?age=edad', getCharactersByAge)
-// personajesRouter.get('/?movies=idMovie', getCharactersByMovie)
+personajesRouter.get('/?name=nombre',  getCharacterByName)
+personajesRouter.get('/?age=edad', getCharacterByAge)
+personajesRouter.get('/?movies=idMovie', getCharacterByMovie)
+
+personajesRouter.use('/:id', characterExists)
+personajesRouter.route('/:id')
+.get(getCharacterById)	
+.patch(updateCharacter)
+.delete(deleteCharacter);
+
 
 module.exports = { personajesRouter };
